@@ -67,7 +67,22 @@ public class Client1Controller {
     String getMassege = "";
     String getName = "";
 
-    private static final String[] emojis = {"\uD83D\uDE00", "\uD83D\uDE01", "\uD83D\uDE02", "\uD83D\uDE03", "\uD83D\uDE04","\uD83D\uDC4D","\uD83D\uDE04", "\uD83D\uDE03", "\uD83D\uDE00", "\uD83D\uDE01"};
+    private static final String[] emojis = {"\uD83D\uDE00", "\uD83D\uDE01", "\uD83D\uDE02", "\uD83D\uDE03", "\uD83D\uDE04", "\uD83D\uDC4D", "\uD83D\uDE04", "\uD83D\uDE03", "\uD83D\uDE00", "\uD83D\uDE01", "\u263A", "\uD83D\uDE00", "\uD83D\uDE01", "\uD83D\uDE02", "\uD83D\uDE03",
+            "\uD83D\uDE04", "\uD83D\uDE05", "\uD83D\uDE06", "\uD83D\uDE07", "\uD83D\uDE08",
+            "\uD83D\uDE09", "\uD83D\uDE0A", "\uD83D\uDE0B", "\uD83D\uDE0C", "\uD83D\uDE0D",
+            "\uD83D\uDE0E", "\uD83D\uDE0F", "\uD83D\uDE10", "\uD83D\uDE11", "\uD83D\uDE12",
+            "\uD83D\uDE13", "\uD83D\uDE14", "\uD83D\uDE15", "\uD83D\uDE16", "\uD83D\uDE17",
+            "\uD83D\uDE18", "\uD83D\uDE19", "\uD83D\uDE1A", "\uD83D\uDE1B", "\uD83D\uDE1C",
+            "\uD83D\uDE1D", "\uD83D\uDE1E", "\uD83D\uDE1F", "\uD83D\uDE20", "\uD83D\uDE21",
+            "\uD83D\uDE22", "\uD83D\uDE23", "\uD83D\uDE24", "\uD83D\uDE25", "\uD83D\uDE26",
+            "\uD83D\uDE27", "\uD83D\uDE28", "\uD83D\uDE29", "\uD83D\uDE2A", "\uD83D\uDE2B",
+            "\uD83D\uDE2C", "\uD83D\uDE2D", "\uD83D\uDE2E", "\uD83D\uDE2F", "\uD83D\uDE30",
+            "\uD83D\uDE31", "\uD83D\uDE32", "\uD83D\uDE33", "\uD83D\uDE34", "\uD83D\uDE35",
+            "\uD83D\uDE36", "\uD83D\uDE37", "\uD83D\uDE38", "\uD83D\uDE39", "\uD83D\uDE3A",
+            "\uD83D\uDE3B", "\uD83D\uDE3C", "\uD83D\uDE3D", "\uD83D\uDE3E", "\uD83D\uDE3F",
+            "\uD83D\uDE40", "\uD83D\uDE41", "\uD83D\uDE42", "\uD83D\uDE43", "\uD83D\uDE44",
+            "\uD83D\uDE45", "\uD83D\uDE46", "\uD83D\uDE47", "\uD83D\uDE48", "\uD83D\uDE49",
+            "\uD83D\uDE4A", "\uD83D\uDE4B", "\uD83D\uDE4C", "\uD83D\uDE4D", "\uD83D\uDE4E", "\uD83D\uDE4F"};
 
 
     public void sentButtonOnclick(MouseEvent mouseEvent) throws IOException {
@@ -80,12 +95,12 @@ public class Client1Controller {
 
 
         Platform.runLater(() -> {
-            Label setName = new Label( sentMsg + "\n");
+            Label setName = new Label(sentMsg + "\n");
             setName.setStyle("-fx-background-color: #00B3D4FF;-fx-background-radius: 5;-fx-text-fill: white");
-            setName.setPadding(new Insets(5,15,5,15));
-            HBox hBox=new HBox();
+            setName.setPadding(new Insets(5, 15, 5, 15));
+            HBox hBox = new HBox();
             hBox.setAlignment(Pos.BASELINE_RIGHT);
-       //     hBox.setPadding(new Insets(5,15,5,15));
+            //     hBox.setPadding(new Insets(5,15,5,15));
             hBox.getChildren().add(setName);
             ClientArea.getChildren().add(hBox);
 
@@ -97,8 +112,8 @@ public class Client1Controller {
 
     @FXML
     void initialize() {
-          ClientArea.setPadding(new Insets(10,10,10,10));
-          ClientArea.setSpacing(10);
+        ClientArea.setPadding(new Insets(10, 10, 10, 10));
+        ClientArea.setSpacing(10);
         new Thread(() -> {
             try {
                 socket = new Socket("localhost", 3001);
@@ -110,9 +125,9 @@ public class Client1Controller {
                     System.out.println(getMassege);
                     System.out.println(getName);
 
-                    if(getMassege.startsWith("file:")){
+                    if (getMassege.startsWith("file:")) {
 
-                        ImageView imageView=new ImageView(new Image(getMassege));
+                        ImageView imageView = new ImageView(new Image(getMassege));
                         HBox hBox = new HBox();
                         hBox.getChildren().add(imageView);
                         hBox.setPadding(new Insets(10));
@@ -120,16 +135,15 @@ public class Client1Controller {
                         imageView.setPreserveRatio(true);
 
                         Platform.runLater(() -> {
-                            Label set = new Label(getName+":" + "\n");
-                            ClientArea.getChildren().addAll(set,imageView);
+                            Label set = new Label(getName + ":" + "\n");
+                            ClientArea.getChildren().addAll(set, imageView);
                         });
-                    }
-                    else{
+                    } else {
                         Platform.runLater(() -> {
                             //
                             Label getMsgLabel = new Label(getName + ": " + getMassege + "\n");
                             getMsgLabel.setStyle("-fx-background-color: white;-fx-background-radius: 5;-fx-text-fill: black");
-                            getMsgLabel.setPadding(new Insets(5,15,5,15));
+                            getMsgLabel.setPadding(new Insets(5, 15, 5, 15));
                             ClientArea.getChildren().addAll(getMsgLabel);
 
                         });
@@ -149,6 +163,7 @@ public class Client1Controller {
         for (String emoji : emojis) {
             Label label = new Label(emoji);
             label.setStyle("-fx-font-size: 20;"); // Adjust font size if needed
+            label.setPadding(new Insets(8));
             emojiPane.getChildren().add(label);
 
             label.setOnMouseClicked(event -> {
@@ -156,9 +171,8 @@ public class Client1Controller {
                 ClientField.appendText(emoji);
                 ClientField.requestFocus();
                 ClientField.positionCaret(ClientField.getText().length());
-});
+            });
         }
-
 
 
         assert client != null : "fx:id=\"client\" was not injected: check your FXML file 'client1.fxml'.";
@@ -180,7 +194,8 @@ public class Client1Controller {
         clientLabel.setText(joinText.getText());
     }
 
-    String filePath;
+    File filePath;
+
     public void imageOnclick(MouseEvent mouseEvent) throws IOException {
 
 
@@ -188,32 +203,35 @@ public class Client1Controller {
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         fileChooser = new FileChooser();
         fileChooser.setTitle("Open Image");
-        this.filePath = String.valueOf(fileChooser.showOpenDialog(stage));
+        this.filePath = (fileChooser.showOpenDialog(stage));
 
+        System.out.println(filePath+"@");
+        if (filePath!= null) {
+            System.out.println(filePath);
 
-        System.out.println(filePath);
+            dataOutputStream.writeUTF("file:" + filePath);
+            dataOutputStream.writeUTF(clientLabel.getText());
+            dataOutputStream.flush();
 
-        dataOutputStream.writeUTF("file:"+filePath);
-        dataOutputStream.writeUTF(clientLabel.getText());
-        dataOutputStream.flush();
+            ImageView imageView = new ImageView(new Image("file:" + filePath));
+            imageView.setFitWidth(192);
+            imageView.setPreserveRatio(true);
 
-        ImageView imageView=new ImageView(new Image("file:"+filePath));
-        imageView.setFitWidth(192);
-        imageView.setPreserveRatio(true);
-
-        Platform.runLater(() -> {
-            HBox hBox=new HBox();
-            hBox.setAlignment(Pos.BASELINE_RIGHT);
-            hBox.getChildren().add(imageView);
-            hBox.setPadding(new Insets(5));
-            ClientArea.getChildren().add(hBox);
-        });
+            Platform.runLater(() -> {
+                HBox hBox = new HBox();
+                hBox.setAlignment(Pos.BASELINE_RIGHT);
+                hBox.getChildren().add(imageView);
+                hBox.setPadding(new Insets(5));
+                ClientArea.getChildren().add(hBox);
+            });
+        }
     }
 
     public void emojiOnClick(MouseEvent mouseEvent) {
 
         scolePane.setVisible(true);
         emojiPane.setVisible(true);
+        emojiPane.setPadding(new Insets(10));
 
     }
 

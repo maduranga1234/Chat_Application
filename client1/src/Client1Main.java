@@ -11,7 +11,7 @@ public class Client1Main extends Application {
 
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/client1.fxml"));
-        primaryStage.setTitle("server");
+        primaryStage.setTitle("CHAT HUB");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
