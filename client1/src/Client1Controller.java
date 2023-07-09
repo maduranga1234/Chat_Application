@@ -232,6 +232,7 @@ public class Client1Controller {
         scolePane.setVisible(true);
         emojiPane.setVisible(true);
         emojiPane.setPadding(new Insets(10));
+        emojiPane.setStyle("-fx-background-color: #00B3D4FF");
 
     }
 

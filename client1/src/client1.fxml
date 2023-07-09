@@ -18,7 +18,7 @@
          <children>
             <ScrollPane layoutX="-58.0" layoutY="69.0" minWidth="-Infinity" prefHeight="256.0" prefWidth="582.0">
                <content>
-                  <VBox fx:id="ClientArea" prefHeight="266.0" prefWidth="568.0" />
+                  <VBox fx:id="ClientArea" prefHeight="266.0" prefWidth="568.0" style="-fx-background-color: 00C989FF;" />
                </content>
             </ScrollPane>
             <ScrollPane fx:id="scolePane" layoutX="-45.0" layoutY="123.0" visible="false">
@@ -27,12 +27,12 @@
                </content>
             </ScrollPane>
             <TextField fx:id="ClientField" layoutX="16.0" layoutY="342.0" onMouseClicked="#textClick" prefHeight="31.0" prefWidth="471.0" style="-fx-border-color: #00b3d4;" />
-            <Label fx:id="clientLabel" layoutX="133.0" layoutY="-3.0" prefHeight="45.0" prefWidth="283.0" textFill="#14e4ff">
+            <Label fx:id="clientLabel" layoutX="151.0" layoutY="-4.0" prefHeight="37.0" prefWidth="197.0" textFill="#14e4ff">
                <font>
-                  <Font size="30.0" />
+                  <Font name="Stencil" size="30.0" />
                </font>
             </Label>
-            <ImageView fx:id="sentButton" fitHeight="28.0" fitWidth="35.0" layoutX="492.0" layoutY="343.0" onMouseClicked="#sentButtonOnclick" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="sentButton" fitHeight="28.0" fitWidth="35.0" layoutX="493.0" layoutY="343.0" onMouseClicked="#sentButtonOnclick" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@image/sent.png" />
                </image>
@@ -51,7 +51,10 @@
       </Group>
       <Group fx:id="join" layoutX="152.0" layoutY="229.0">
          <children>
-            <TextField fx:id="joinText" layoutY="15.0" prefHeight="31.0" prefWidth="303.0" style="-fx-border-color: #00b3d4;" />
+            <TextField fx:id="joinText" layoutY="15.0" prefHeight="31.0" prefWidth="303.0" promptText="Username" style="-fx-border-color: #00b3d4;">
+               <font>
+                  <Font name="MingLiU_HKSCS-ExtB" size="13.0" />
+               </font></TextField>
             <Button fx:id="joinBtn" layoutX="107.0" layoutY="53.0" mnemonicParsing="false" onAction="#joinOnAction" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #00b3d4; -fx-background-radius: 18;" text="Join" textFill="WHITE">
                <font>
                   <Font name="Algerian" size="12.0" />
